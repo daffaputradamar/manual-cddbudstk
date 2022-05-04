@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./static/jquery.min.js"></script>
+    <!-- <script>window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))</script> -->
+    <script src="./static/cldr.min.js"></script>
+    <script src="./static/event.min.js"></script>
+    <script src="./static/supplemental.min.js"></script>
+    <script src="./static/unresolved.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.common.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn3.devexpress.com/jslib/21.2.7/css/dx.light.css" /> -->
+    <link rel="stylesheet" href="./static/dx.light.css">
+    <script src="./static/dx.all.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="styles.css" /> -->
+
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <title>CDDB & UDSTK Manual</title>
+</head>
+<body>
+    <div class="m-5">
+            <h1 class="mb-5">Pendaftaran Isinama</h1>
+
+            <!-- <div class="text-right"> -->
+                <div class="card">
+                    <div class="card-body d-flex">
+                            <input type="text" id="idkodeahm" class="form-control mx-4" placeholder="Kode AHM Dealer">
+                            <input type="text" id="idkodecabang" class="form-control mx-4" placeholder="Kode Cabang">
+                            <input type="text" id="idkodempm" class="form-control mx-4" placeholder="Kode MPM Dealer">
+                    </div>
+                </div>
+            <!-- </div> -->
+        
+            <div class="my-4">
+                <a href="./static/Format CDDB dan UDSTK.xlsx" class="btn btn-outline-secondary mr-4">
+                    Download Template
+                </a>
+                
+                <input type="file" id="file_upload">
+            </div>
+
+            <div class="my-4 text-right d-none" id="btnExport">
+                <button class="btn btn-outline-primary" id="btnCDDB">Export File CDDB</button>
+                <button class="btn btn-outline-success ml-2" id="btnUDSTK">Export File UDSTK</button>
+            </div>
+        
+            <div class="container-fluid">
+                <div id="dx-grid">
+            
+                </div>
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    </div>
+    
+
+    <script src="./static/bootstrap.bundle.min.js"></script>
+    <script src="./xlsx.full.min.js"></script>
+    <!-- <script src="./data.js"></script> -->
+    <script src="./settings.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
