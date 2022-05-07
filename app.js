@@ -278,6 +278,13 @@ function downloadBlob(content, filename, contentType) {
 
 
 $("#btnUDSTK").click(function(e) {
+  const err = validateInput()
+
+  if(err.length != 0) {
+    alert(err.join('\n'))
+    return
+  }
+
   $("#dx-grid").dxDataGrid('instance').getDataSource().store().load().done((res)=>{
       const _data = []
       res.forEach(v => {
@@ -325,7 +332,7 @@ $("#btnUDSTK").click(function(e) {
         sessionStorage.removeItem('rand')
       }
       
-      downloadBlob(arrayToCsv(_data), `${$('#idkodeahm').val()}-${$('#idkodecabang').val()}-${datestring}11111-FKTR_${$('#idkodempm').val()}001_${_d.getFullYear()}_${_d.getMonth() + 1}_-${_random}.udstk`, 'text/csv;charset=utf-8;')
+      downloadBlob(arrayToCsv(_data), `${$('#idkodeahm').val().toUpperCase()}-${$('#idkodecabang').val().toUpperCase()}-${datestring}11111-FKTR_${$('#idkodempm').val().toUpperCase()}001_${_d.getFullYear()}_${_d.getMonth() + 1}_-${_random}.udstk`, 'text/csv;charset=utf-8;')
   })
 })
 
@@ -337,6 +344,13 @@ function s2ab(s) {
 }
 
 $("#btnCDDB").click(function(e) {
+  const err = validateInput()
+
+  if(err.length != 0) {
+    alert(err.join('\n'))
+    return
+  }
+
   $("#dx-grid").dxDataGrid('instance').getDataSource().store().load().done((res)=>{
     const _data = []
     res.forEach(v => {
@@ -417,10 +431,38 @@ $("#btnCDDB").click(function(e) {
           sessionStorage.removeItem('rand')
         }
         
-        downloadBlob(arrayToCsv(_data), `${$('#idkodeahm').val()}-${$('#idkodecabang').val()}-${datestring}11111-FKTR_${$('#idkodempm').val()}001_${_d.getFullYear()}_${_d.getMonth() + 1}_-${_random}.cddb`, 'text/csv;charset=utf-8;')
+        downloadBlob(arrayToCsv(_data), `${$('#idkodeahm').val().toUpperCase()}-${$('#idkodecabang').val().toUpperCase()}-${datestring}11111-FKTR_${$('#idkodempm').val().toUpperCase()}001_${_d.getFullYear()}_${_d.getMonth() + 1}_-${_random}.cddb`, 'text/csv;charset=utf-8;')
   })
 })
 
 const masterdata = {
   'hobi': ['A1','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19','A2','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A3','A30','A31','A32','A33','A4','A5','A6','A7','A8','A9']
+}
+
+function validateInput() {
+  const err = []
+  
+  const idkodeahm = $('#idkodeahm').val()
+  if (idkodeahm == '') {
+    err.push('Kode AHM harus diisi')
+  } else if (isNaN(idkodeahm) || idkodeahm.length != 5) {
+    err.push('Kode AHM harus berupa angka 5 digit, contoh: 00006')
+  }
+
+  const idkodecabang = $('#idkodecabang').val() 
+  if (idkodecabang == '') {
+    err.push('Kode Cabang harus diisi')
+  } else if (idkodecabang.toUpperCase() != 'M2Z' && idkodecabang.toUpperCase() != 'M3Z') {
+    err.push('Kode Cabang harus berisi M2Z atau M3Z')
+  }
+
+  const idkodempm = $('#idkodempm').val() 
+  if (idkodempm == '') {
+    err.push('Kode MPM harus diisi')
+  } else if (!isNaN(idkodempm[0]) || idkodempm.length != 5) {
+    err.push('Kode MPM harus berupa angka 5 digit, contoh: A0000')
+  }
+  
+  return err
+  
 }
