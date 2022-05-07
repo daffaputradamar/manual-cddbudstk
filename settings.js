@@ -68,7 +68,7 @@ const columns = [
         width:100
     },
     {
-        dataField: 'No. KTP / NPWP',
+        dataField: 'NoKTP',
         width:100
     },
     {
@@ -128,11 +128,11 @@ const columns = [
         width:100
     },
     {
-        dataField: 'No.HP (GSM/CDMA)',
+        dataField: 'NoHP',
         width:100
     },
     {
-        dataField: 'No. Telp',
+        dataField: 'NoTelp',
         width:100
     },
     {
@@ -184,7 +184,7 @@ const columns = [
         width:100
     },
     {
-        dataField: 'Youtube (@gmail.com)',
+        dataField: `Youtube`,
         width:100
     },
     {
