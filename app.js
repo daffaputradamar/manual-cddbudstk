@@ -229,9 +229,18 @@ function validateData(data) {
       errData.push('Status Nomor HP harus berupa kode sesuai di masterdata excel')
     }
 
+    if(isNaN(val['Kode Dealer'])) {
+      errData.push('Kode Dealer harus berupa Kode Dealer AHM (6 digit angka)')
+    }
+
     if(!masterdata['hobi'].includes(val['Hobi'])) {
       errData.push('Hobi harus berupa kode sesuai di masterdata excel')
     }
+
+    if(!masterdata['fincoy'].includes(val['Kode Fincoy'])) {
+      errData.push('Kode Fincoy harus berupa kode sesuai di masterdata excel')
+    }
+
 
     if(isNaN(val['Kode Kecamatan Instansi'])) {
       errData.push('Kode Kecamatan Instansi harus berupa Kode (angka)')
@@ -436,7 +445,8 @@ $("#btnCDDB").click(function(e) {
 })
 
 const masterdata = {
-  'hobi': ['A1','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19','A2','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A3','A30','A31','A32','A33','A4','A5','A6','A7','A8','A9']
+  'hobi': ['A1','A10','A11','A12','A13','A14','A15','A16','A17','A18','A19','A2','A20','A21','A22','A23','A24','A25','A26','A27','A28','A29','A3','A30','A31','A32','A33','A4','A5','A6','A7','A8','A9'],
+  'fincoy': ['ADIRA','BCAMF','FIFIN','MCFIN','MEGAF','MPMFI','MUFIN','NUSAC','OTHER','SUMIT','TUNAI','WOMFN']
 }
 
 function validateInput() {
